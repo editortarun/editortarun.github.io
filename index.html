@@ -13,6 +13,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="float-panel.js"></script>
+
 
 <style>
     #owl-demo .item{
@@ -28,6 +30,35 @@
 
 
 <style >
+
+   /* --------------------slide image in---------- */
+.slideanim {
+    visibility:hidden;
+    visibility:visible\9;/*For old IE browsers IE6-8 */
+}
+.slideanim.slide {                  
+    visibility: visible;                  
+    animation: slide 1s;
+}
+.slideanim::after {
+    /* useful when its child elements are float:left; */
+    content: "";
+    display: table;
+    clear: both;
+}
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    } 
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    } 
+}
+
+
+
     #box    {       
             border:  1px hidden;
             padding: 0px 75px 200px 75px;
@@ -112,7 +143,8 @@
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <img style="background-color: rgb(255, 255, 226);" src="02_tarun.png" class="rounded float-right" alt="Tarun" width="100%" height="100%" 
+                    <img class="slideanim" style="background-color: rgb(255, 255, 226);" 
+                    src="02_tarun.png" class="rounded float-right" alt="Tarun" width="100%" height="100%" 
                     style="float:left;max-width: 100%;max-height: 100%;padding: 20px;"> 
                 </div>
             </div>
@@ -120,14 +152,14 @@
             <div class="row">
                 <div class="col-md-12">
                           <div class="text-center">
-                          <b id ="project" style="font-size: 30pt; position: relative; top: 100px;">Projects</b>
+                          <b class="slideanim" id ="project" style="font-size: 30pt; position: relative; top: 100px;">Projects</b>
                           
                      </div>
                 </div>
                     
             </div>
             
-            <div class="row" style="position: relative; top: 200px; padding: 0px 0px 100px 0px;">
+            <div class="row " style="position: relative; top: 200px; padding: 0px 0px 100px 0px;">
                 <div class="col-md-4"> 
                     <div class="text-center" id = "box">
                           <b style="font-size: 30pt; background-color: black; color: white; padding: 10px;">Work</b><br>
